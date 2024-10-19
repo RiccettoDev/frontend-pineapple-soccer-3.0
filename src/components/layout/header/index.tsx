@@ -1,13 +1,15 @@
-import { Box, Flex, Img, Link, ListItem, Text, UnorderedList } from "@chakra-ui/react";
 import NextLink from 'next/link';
+import { Box, Flex, Img, Link, ListItem, Text, UnorderedList } from "@chakra-ui/react";
 
-import logo from "../../assets/pineappleIcon.png"
+import { colors } from "../../../styles/colors"
+
+import logo from "../../../assets/pineappleIcon.png"
 
 export function Header() {
     return (
         <Flex
-            bg={"#10172A"}
-            color={"#84CC15"}
+            bg={colors.blue}
+            color={colors.lime}
             width={"100%"}
             h={"130px"}
             align={"center"}
@@ -29,7 +31,7 @@ export function Header() {
                 }}
             >
                 <Img src={logo.src} alt="logo" />
-                <Text fontSize={"3xl"} mt={6} _hover={{ color: "#FFFFFF" }}>PineappleSoccer</Text>
+                <Text fontSize={"3xl"} mt={6} _hover={{ color: `${colors.white}` }}>PineappleSoccer</Text>
             </Flex>
             <Box>
                 <UnorderedList display={"flex"} gap={"20px"} listStyleType={"none"} fontSize={"2xl"}>
@@ -44,7 +46,7 @@ export function Header() {
                             href="/"
                             transition="all 0.3s ease"
                             _hover={{
-                                textDecoration: "none", color: "#FFFFFF",
+                                textDecoration: "none", color: `${colors.white}`,
                             }}
                         >
                             Home
@@ -61,7 +63,7 @@ export function Header() {
                             href="/profile"
                             transition="all 0.3s ease"
                             _hover={{
-                                textDecoration: "none", color: "#FFFFFF",
+                                textDecoration: "none", color: `${colors.white}`,
                             }}
                         >
                             Perfil
@@ -78,7 +80,7 @@ export function Header() {
                             href="/players"
                             transition="all 0.3s ease"
                             _hover={{
-                                textDecoration: "none", color: "#FFFFFF",
+                                textDecoration: "none", color: `${colors.white}`,
                             }}
                         >
                             Jogadores
@@ -95,7 +97,7 @@ export function Header() {
                             href="/matches"
                             transition="all 0.3s ease"
                             _hover={{
-                                textDecoration: "none", color: "#FFFFFF",
+                                textDecoration: "none", color: `${colors.white}`,
                             }}
                         >
                             Partidas

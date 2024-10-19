@@ -4,6 +4,9 @@ import { useEffect, useState } from "react";
 import { Flex, Text } from "@chakra-ui/react";
 
 import api from "../../../services/api"
+import { CardPlayer } from "@/components/players/cardPlayer";
+
+import { colors } from "@/styles/colors";
 
 // Defina uma interface para o tipo de usuário
 interface User {
@@ -28,15 +31,22 @@ export default function Players() {
     }, []);
 
     return (
-        <Flex bg={"blue"} w={"100%"} h={"100vh"} justifyContent={"center"} alignItems={"center"} direction={"column"} color={"#FFF"}>
-            <Text fontSize={"2xl"} mb={4}>Jogadores</Text>
-            {users.length > 0 ? (
-                users.map((user) => (
-                    <Text key={user.id}>{user.name}</Text> // Ajuste conforme a estrutura do dado retornado
-                ))
-            ) : (
-                <Text>Carregando...</Text>
-            )}
+        <Flex 
+            bg={"blue"} 
+            w={"100%"} 
+            h={"100%"} 
+            justifyContent={"center"}
+            color={colors.white}>
+            <Flex direction={"column"} mt={36} mb={16}>
+                <Text fontSize={"2xl"} mb={4}>Jogadores</Text>
+                {users.length > 0 ? (
+                    users.map((user) => (
+                        <CardPlayer key={user.id} user={user} />
+                    ))
+                ) : (
+                    <Text>Carregando...</Text>
+                )}
+            </Flex>    
         </Flex>
     )
 }

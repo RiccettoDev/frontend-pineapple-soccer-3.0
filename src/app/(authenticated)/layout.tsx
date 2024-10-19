@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "../globals.css";
 import { Luckiest_Guy } from 'next/font/google';
 import { ChakraProvider } from "@chakra-ui/react";
-import { Header } from "@/components/header";
-import { Footer } from "@/components/footer";
+import { Header } from "@/components/layout/header";
+import { Footer } from "@/components/layout/footer";
 
 const luckiestGuy = Luckiest_Guy({
   subsets: ['latin'],
