@@ -3,16 +3,12 @@
 import { useEffect, useState } from "react";
 import { Flex, Text } from "@chakra-ui/react";
 
-import api from "../../../services/api"
 import { CardPlayer } from "@/components/players/cardPlayer";
+import { User } from "@/interface/user";
+import api from "../../../services/api"
+
 
 import { colors } from "@/styles/colors";
-
-// Defina uma interface para o tipo de usuário
-interface User {
-    id: number;
-    name: string;
-}
 
 export default function Players() {
     const [users, setUsers] = useState<User[]>([]); // Inicializado como um array vazio do tipo User
@@ -32,13 +28,13 @@ export default function Players() {
 
     return (
         <Flex 
-            bg={"blue"} 
+            bg={colors.yellow} 
             w={"100%"} 
             h={"100%"} 
             justifyContent={"center"}
             color={colors.white}>
-            <Flex direction={"column"} mt={36} mb={16}>
-                <Text fontSize={"2xl"} mb={4}>Jogadores</Text>
+            <Flex w={"60%"} alignItems={"center"} direction={"column"} mt={36} mb={16}>
+                <Text color={colors.blue} fontSize={"2xl"} mb={4}>Jogadores</Text>
                 {users.length > 0 ? (
                     users.map((user) => (
                         <CardPlayer key={user.id} user={user} />
