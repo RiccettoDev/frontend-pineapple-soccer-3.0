@@ -3,6 +3,7 @@ import { Button, Flex, Text } from "@chakra-ui/react";
 import { colors } from "@/styles/colors";
 
 import { User } from "@/interface/user";
+import { Stars } from "../stars";
 
 interface UserProps {
   user: User;
@@ -20,6 +21,7 @@ export function CardPlayer({ user }: UserProps) {
     >
       <Flex w={"40%"} direction={"column"} justifyContent={"center"} align={"center"}>
         Image
+        <Stars key={user.id} user={user} />
       </Flex>
       <Flex w={"60%"} direction={"column"} position={"relative"}>
         <Flex gap={2}>

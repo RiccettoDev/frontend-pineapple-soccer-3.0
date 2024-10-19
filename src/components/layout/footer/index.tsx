@@ -7,7 +7,7 @@ export function Footer() {
         <Flex w={"100%"} mb={"1em"} bottom={0} position={"absolute"} justifyContent={"center"}>
             <Link
                 href="https://portfolio-ten-lime-67.vercel.app/"
-                color={colors.lime}
+                color={colors.blue}
                 transition="all 0.3s ease"
                 _hover={{
                     textDecoration: "none", color: `${colors.lime}`,
