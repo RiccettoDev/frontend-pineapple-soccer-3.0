@@ -1,6 +1,8 @@
 import { Flex } from "@chakra-ui/react";
 import { IoIosStar, IoIosStarHalf, IoIosStarOutline } from "react-icons/io";
 
+import { colors } from "@/styles/colors";
+
 import { User } from "@/interface/user";
 
 interface UserProps {
@@ -17,13 +19,13 @@ export function Stars({ user }: UserProps) {
     <Flex>
       {/* Renderiza as estrelas cheias */}
       {[...Array(filledStars)].map((_, index) => (
-        <IoIosStar key={index} />
+        <IoIosStar key={index} size={25} color={`${colors.yellow}`} />
       ))}
       {/* Renderiza a estrela meia, se necessário */}
-      {halfStar && <IoIosStarHalf />}
+      {halfStar && <IoIosStarHalf size={25} color={`${colors.yellow}`} />}
       {/* Renderiza as estrelas vazias */}
       {[...Array(emptyStars)].map((_, index) => (
-        <IoIosStarOutline key={index} />
+        <IoIosStarOutline key={index} size={25} color={`${colors.yellow}`} />
       ))}
     </Flex>
   );

@@ -1,39 +1,49 @@
+"use client";
+
 import { Button, Flex, Text } from "@chakra-ui/react";
 import { colors } from "@/styles/colors";
 import { User } from "@/interface/user";
 import { Stars } from "../stars";
+import { useState } from "react";
+import { CardVote } from "../cardVote";
 
 interface UserProps {
   user: User;
 }
 
 export function CardPlayer({ user }: UserProps) {
+  const [cardVoteIsVisible, setCardVoteIsVisible] = useState(false); // Começa como invisível
+
+  const closeModalVote = () => { // Define a função corretamente
+    setCardVoteIsVisible(false);
+  };
+
   return (
     <Flex 
       bg={colors.blue} 
-      w={{ base: "100%", md: "80%", lg: "100%" }} // Ajusta a largura para telas menores
+      w={{ base: "100%", md: "80%", lg: "100%" }} 
       p={4} 
       borderRadius="8px" 
       boxShadow={"2xl"}
       mb={2}
-      direction={{ base: "column", md: "row" }} // Empilha no mobile, alinha em linha no desktop
+      direction={{ base: "column", md: "row" }}
     >
       <Flex 
-        w={{ base: "100%", md: "40%" }} // Ocupa 100% da largura no mobile e 40% em telas maiores
+        w={{ base: "100%", md: "40%" }} 
         direction={"column"} 
         justifyContent={"center"} 
         align={"center"}
-        mb={{ base: 4, md: 0 }} // Adiciona espaçamento no mobile entre as seções
+        mb={{ base: 4, md: 0 }} 
       >
         Image
         <Stars key={user.id} user={user} />
       </Flex>
       
       <Flex 
-        w={{ base: "100%", md: "60%" }} // Mesma lógica para a largura no mobile e desktop
+        w={{ base: "100%", md: "60%" }} 
         direction={"column"} 
         position={"relative"}
-        gap={2} // Adiciona espaçamento entre os itens
+        gap={2}
       >
         <Flex gap={2}>
           <Text color={colors.white}>Nome: </Text>
@@ -69,16 +79,21 @@ export function CardPlayer({ user }: UserProps) {
         </Flex>
 
         <Button
-          w={{ base: "100%", md: "20%" }} // Botão ocupa toda a largura no mobile
-          mt={{ base: 4, md: 0 }} // Adiciona margem superior no mobile
-          position={{ base: "static", md: "absolute" }} // Alinha o botão no mobile de forma estática
+          w={{ base: "100%", md: "20%" }} 
+          mt={{ base: 4, md: 0 }} 
+          position={{ base: "static", md: "absolute" }} 
           right={0} 
           bg={colors.yellow} 
           color={colors.blue} 
           border={`1px solid ${colors.blue}`}
+          onClick={() => setCardVoteIsVisible(true)} // Abre o CardVote
         >
           vote
         </Button>
+        
+        {cardVoteIsVisible && (
+          <CardVote closeModal={closeModalVote} />
+        )}
       </Flex>
     </Flex>
   );
