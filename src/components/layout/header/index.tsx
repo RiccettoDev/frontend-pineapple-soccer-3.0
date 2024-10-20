@@ -50,7 +50,7 @@ export function Header() {
             </Flex>
 
             {/* Botão para abrir/fechar o menu */}
-            <Box display={{ base: "block", lg: "none" }}>
+            <Box display={{ base: "block", lg: "none" }} mr={6} mt={5}>
                 <IconButton
                     icon={menuIsOpen ? <IoIosCloseCircle /> : <IoMenu />}
                     aria-label="Toggle Menu"

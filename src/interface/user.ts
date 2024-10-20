@@ -13,6 +13,7 @@ export interface User {
   kick: number;
   pass: number;
   headbutt: number;
+  image: string;
   teamId?: number;
   groupId?: number;
   createdAt?: Date;

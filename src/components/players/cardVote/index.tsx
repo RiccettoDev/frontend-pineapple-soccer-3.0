@@ -2,6 +2,7 @@ import { Button, Flex } from "@chakra-ui/react";
 import { IoIosCloseCircle } from "react-icons/io";
 
 import { colors } from "@/styles/colors";
+import { FormVote } from "../formVote";
 
 interface PLayerCardProps {
   closeModal: () => void;
@@ -32,7 +33,7 @@ export function CardVote({closeModal}: PLayerCardProps) {
         >
           <IoIosCloseCircle color={colors.lime} size={25}/>
         </Button>
-        vote
+        <FormVote />
       </Flex>
       <Button _hover={{}} _active={{}} onClick={closeModal}
         bg={"black"} 

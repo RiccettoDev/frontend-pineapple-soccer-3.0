@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, Flex, Text } from "@chakra-ui/react";
+import { Button, Flex, Image, Text } from "@chakra-ui/react";
 import { colors } from "@/styles/colors";
 import { User } from "@/interface/user";
 import { Stars } from "../stars";
@@ -21,7 +21,7 @@ export function CardPlayer({ user }: UserProps) {
   return (
     <Flex 
       bg={colors.blue} 
-      w={{ base: "100%", md: "80%", lg: "100%" }} 
+      w={{ base: "130%", md: "80%", lg: "100%" }} 
       p={4} 
       borderRadius="8px" 
       boxShadow={"2xl"}
@@ -30,12 +30,19 @@ export function CardPlayer({ user }: UserProps) {
     >
       <Flex 
         w={{ base: "100%", md: "40%" }} 
+        h={{ base: "150px", md: "100%" }}
         direction={"column"} 
         justifyContent={"center"} 
         align={"center"}
         mb={{ base: 4, md: 0 }} 
       >
-        Image
+        <Flex w={"70%"} h={"80%"} mb={4} justifyContent={"center"} alignItems={"center"} p={4} border={"1px solid #FFF"}>
+          <Image 
+            src={user.image} 
+            alt="Image player"
+            w={"80%"} 
+          />
+        </Flex>
         <Stars key={user.id} user={user} />
       </Flex>
       
